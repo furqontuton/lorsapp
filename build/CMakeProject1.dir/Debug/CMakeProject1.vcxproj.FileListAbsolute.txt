@@ -1,0 +1,3 @@
+C:\Users\FATTA IT\source\repos\CMakeProject1\build\Debug\libcurl.dll
+C:\Users\FATTA IT\source\repos\CMakeProject1\build\Debug\zlib1.dll
+C:\Users\FATTA IT\source\repos\CMakeProject1\build\CMakeProject1.dir\Debug\CMakePro.7903AA1F.Up2Date
