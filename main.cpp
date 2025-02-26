@@ -7,12 +7,14 @@
 
 using json = nlohmann::json; // Use JSON alias
 
+
 size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::string* output)
 {
 	size_t realsize = size * nmemb;
 	output->append((char*)contents, realsize);
 	return realsize;
 }
+
 
 
 
@@ -45,35 +47,35 @@ void post_json_handler_curl(const httplib::Request& req, httplib::Response& res)
 
 int main() {
     httplib::Server svr;
-
     CURL* curl;
     CURLcode res;
     std::string response_string;
+   
+    std::cout << "Start" << std::endl;
+ /*
+    std::cout << "before curl" << std::endl;
+    curl = curl_easy_init;
+    
+    if (curl)
+    {
+		curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:9090/json");
+		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
+		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response_string);
 
-    //curl = curl_easy_init;
-    //
-    //if (curl)
-    //{
-	//	curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:9090/json");
-	//	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
-	//	curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response_string);
-	//	
-    //    res = curl_easy_perform(curl);
-    //    
-    //    if (res != CURLE_OK) {
-    //        std::cerr << "cURL Error: " << curl_easy_strerror(res) << std::endl;
-    //    }
-    //    else {
-    //        std::cout << "Response: " << response_string << std::endl;
-    //    }
-    //    
-    //    
-    //    curl_easy_cleanup(curl);
-	//}
-	//else {
-	//	std::cerr << "Failed to initialize cURL" << std::endl;
-	//}
-
+        res = curl_easy_perform(curl);
+        
+        if (res != CURLE_OK) {
+            std::cerr << "cURL Error: " << curl_easy_strerror(res) << std::endl;
+        }
+        else {
+            std::cout << "Response: " << response_string << std::endl;
+        }
+        
+        curl_easy_cleanup(curl);
+	}
+	else {
+		std::cerr << "Failed to initialize cURL" << std::endl;
+	}
 
     curl = curl_easy_init;
 
@@ -97,8 +99,7 @@ int main() {
 
         curl_easy_cleanup(curl);
     }
-
-
+    */
 
     svr.Get("/", [](const httplib::Request&, httplib::Response& res) {
         res.set_content("Hello, API World!", "text/plain");

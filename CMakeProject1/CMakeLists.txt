@@ -7,7 +7,7 @@ project(CMakeProject1)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(CMAKE_TOOLCHAIN_FILE "C:/Users/FATTA IT/source/repos/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "VCPKG toolchain file")
+set(CMAKE_TOOLCHAIN_FILE "C:/Users/FATTA IT/source/repos/CMakeProject1/vcpkg/installed/x64-windows/include/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "VCPKG toolchain file")
 
 
 find_package(httplib CONFIG REQUIRED)
